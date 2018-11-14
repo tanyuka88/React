@@ -1,0 +1,23 @@
+Install NODEJS= nodejs.org
+Install GULP= gulpjs.com
+Folder with projekt== cmd== npm init (packet.json)
+Folder with projekt==cmd==npm i --save-dev gulp gulp-sass
+Create gulpfile.js
+
+var gulp = require('gulp'),
+    sass= require('gulp-sass');
+
+gulp.task('sass', function(){
+    return gulp.src(['sass/**/*.sass','sass/**/*.scss'])
+        .pipe(sass({outputStyle:'expanded'}).on('error', sass.logError))
+        .pipe(gulp.dest('css'))
+});
+gulp.task('watch', function(){
+    gulp.watch(['sass/**/*.sass','sass/**/*.scss'],['sass']);
+});
+gulp.task('default',['watch']);
+
+
+
+
+
